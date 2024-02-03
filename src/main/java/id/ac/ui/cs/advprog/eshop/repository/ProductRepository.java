@@ -27,11 +27,12 @@ public class ProductRepository {
     }
 
     public Product findById(String productId) {
-        for (Product product : priductData) {
+        for (Product product : productData) {
             if (product.getProductId().equals(productId)) {
                 return product;
             }
         }
+        return null;
     }
 
     public Iterator<Product> findAll() {
