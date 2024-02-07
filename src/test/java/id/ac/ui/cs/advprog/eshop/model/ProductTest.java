@@ -14,6 +14,8 @@ class ProductTest {
         this.product.setProductQuantity(100);
     }
 
+    // Positive Tests
+
     @Test
     void testGetProductId() {
         assertEquals("eb558e9f-1c39-460e-8860-71af6af63bd6", this.product.getProductId());
@@ -27,5 +29,25 @@ class ProductTest {
     @Test
     void testGetProductQuantity() {
         assertEquals(100, this.product.getProductQuantity());
+    }
+
+    // Negative Tests
+
+    @Test
+    void testSetProductIdWithNull() {
+        product.setProductId(null);
+        assertNull(product.getProductId(), "ProductId should be null after setting it to null.");
+    }
+
+    @Test
+    void testSetProductNameWithNull() {
+        product.setProductName(null);
+        assertNull(product.getProductName(), "ProductName should be null after setting it to null.");
+    }
+
+    @Test
+    void testSetProductQuantityWithNegativeValue() {
+        product.setProductQuantity(-10);
+        assertEquals(-10, product.getProductQuantity(), "ProductQuantity should accept negative values, validation expected elsewhere.");
     }
 }
