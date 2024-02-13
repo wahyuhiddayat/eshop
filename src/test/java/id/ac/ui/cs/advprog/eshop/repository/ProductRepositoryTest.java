@@ -8,6 +8,8 @@ import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Iterator;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.ArrayList;
 
 @ExtendWith(MockitoExtension.class)
 class ProductRepositoryTest {
@@ -159,5 +161,106 @@ class ProductRepositoryTest {
     void testFindByIdWithNonExistentProduct() {
         Product result = productRepository.findById("non-existent-id");
         assertNull(result);
+    }
+
+    @Test
+    void testUpdateWithNonExistentProduct() {
+        Product nonExistentProduct = new Product();
+        nonExistentProduct.setProductId("non-existent-id");
+        nonExistentProduct.setProductName("Non Existent");
+        nonExistentProduct.setProductQuantity(50);
+
+        Product result = productRepository.update(nonExistentProduct);
+        assertNull(result);
+    }
+
+    @Test
+    void testFindByIdWithNonExistentId() {
+        String nonExistentId = "non-existent-id";
+        Product result = productRepository.findById(nonExistentId);
+        assertNull(result);
+    }
+
+    @Test
+    void testUpdateWithNullProductInData() {
+        List<Product> testData = new ArrayList<>();
+        testData.add(null);
+
+        Product validProduct = new Product();
+        validProduct.setProductId("valid-id");
+        validProduct.setProductName("Valid Product");
+        validProduct.setProductQuantity(100);
+        testData.add(validProduct);
+
+        productRepository.setProductData(testData);
+
+        Product updatedProduct = new Product();
+        updatedProduct.setProductId("valid-id");
+        updatedProduct.setProductName("Updated Product");
+        updatedProduct.setProductQuantity(200);
+
+        Product result = productRepository.update(updatedProduct);
+
+        assertNotNull(result);
+        assertEquals("Updated Product", result.getProductName());
+        assertEquals(200, result.getProductQuantity());
+    }
+
+    @Test
+    void testCreateWithNullProduct() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            productRepository.create(null);
+        });
+
+        String expectedMessage = "Product cannot be null";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    void testUpdateWithNullProduct() {
+        Product result = productRepository.update(null);
+        assertNull(result);
+    }
+
+    @Test
+    void testUpdateWithProductHavingNullId() {
+        Product productWithNullId = new Product();
+        productWithNullId.setProductName("Product with null ID");
+        productWithNullId.setProductQuantity(100);
+
+        Product result = productRepository.update(productWithNullId);
+        assertNull(result);
+    }
+
+    @Test
+    void testUpdateProductWithMismatchedId() {
+        Product otherProduct = new Product();
+        otherProduct.setProductId("some-other-id");
+        otherProduct.setProductName("Other Product");
+        otherProduct.setProductQuantity(100);
+        productRepository.create(otherProduct);
+
+        Product productToUpdate = new Product();
+        productToUpdate.setProductId("non-matching-id");
+        productToUpdate.setProductName("Updated Product");
+        productToUpdate.setProductQuantity(200);
+
+        Product result = productRepository.update(productToUpdate);
+
+        assertNull(result);
+    }
+
+    @Test
+    void testFindByIdWithMismatchedProductIds() {
+        Product product = new Product();
+        product.setProductId("specific-id");
+        product.setProductName("Specific Product");
+        product.setProductQuantity(100);
+        productRepository.create(product);
+
+        Product foundProduct = productRepository.findById("different-id");
+
+        assertNull(foundProduct);
     }
 }
