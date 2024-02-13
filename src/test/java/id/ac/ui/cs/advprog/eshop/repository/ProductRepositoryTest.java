@@ -141,4 +141,23 @@ class ProductRepositoryTest {
     void testDeleteByIdNonExisting() {
         assertDoesNotThrow(() -> productRepository.deleteById("non-existing-id"));
     }
+
+    @Test
+    void testUpdateNonExistentProduct() {
+        Product nonExistentProduct = new Product();
+        nonExistentProduct.setProductId("non-existent-id");
+        nonExistentProduct.setProductName("Non Existent");
+        nonExistentProduct.setProductQuantity(50);
+
+        Product result = productRepository.update(nonExistentProduct);
+        assertNull(result);
+        Product queryResult = productRepository.findById("non-existent-id");
+        assertNull(queryResult);
+    }
+
+    @Test
+    void testFindByIdWithNonExistentProduct() {
+        Product result = productRepository.findById("non-existent-id");
+        assertNull(result);
+    }
 }
