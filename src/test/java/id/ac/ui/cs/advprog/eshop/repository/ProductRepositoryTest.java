@@ -66,4 +66,82 @@ class ProductRepositoryTest {
         assertEquals(product2.getProductId(), savedProduct.getProductId());
         assertFalse(productIterator.hasNext());
     }
+
+    @Test
+    void testUpdateProductSuccess() {
+        Product originalProduct = new Product();
+        originalProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        originalProduct.setProductName("Original Name");
+        originalProduct.setProductQuantity(100);
+        productRepository.create(originalProduct);
+
+        Product updatedProduct = new Product();
+        updatedProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        updatedProduct.setProductName("Updated Name");
+        updatedProduct.setProductQuantity(150);
+
+        Product result = productRepository.update(updatedProduct);
+
+        assertNotNull(result);
+        assertEquals("Updated Name", result.getProductName());
+        assertEquals(150, result.getProductQuantity());
+    }
+
+    @Test
+    void testUpdateProductFailure() {
+        Product nonExistentProduct = new Product();
+        nonExistentProduct.setProductId("non-existent-id");
+        nonExistentProduct.setProductName("Non Existent");
+        nonExistentProduct.setProductQuantity(50);
+
+        Product result = productRepository.update(nonExistentProduct);
+        assertNull(result);
+    }
+
+    @Test
+    void testFindByIdSuccess() {
+        Product product = new Product();
+        product.setProductId("find-this-id");
+        product.setProductName("Find Me");
+        product.setProductQuantity(100);
+        productRepository.create(product);
+
+        Product foundProduct = productRepository.findById("find-this-id");
+
+        assertNotNull(foundProduct);
+        assertEquals("find-this-id", foundProduct.getProductId());
+        assertEquals("Find Me", foundProduct.getProductName());
+        assertEquals(100, foundProduct.getProductQuantity());
+    }
+
+    @Test
+    void testFindByIdFailure() {
+        Product foundProduct = productRepository.findById("non-existing-id");
+        assertNull(foundProduct);
+    }
+
+    @Test
+    void testFindByIdNullId() {
+        Product foundProduct = productRepository.findById(null);
+        assertNull(foundProduct);
+    }
+
+    @Test
+    void testDeleteByIdSuccess() {
+        Product product = new Product();
+        product.setProductId("delete-me-id");
+        product.setProductName("Delete Me");
+        product.setProductQuantity(100);
+        productRepository.create(product);
+
+        productRepository.deleteById("delete-me-id");
+        Product deletedProduct = productRepository.findById("delete-me-id");
+
+        assertNull(deletedProduct);
+    }
+
+    @Test
+    void testDeleteByIdNonExisting() {
+        assertDoesNotThrow(() -> productRepository.deleteById("non-existing-id"));
+    }
 }
