@@ -3,6 +3,7 @@ plugins {
     jacoco
     id("org.springframework.boot") version "3.2.2"
     id("io.spring.dependency-management") version "1.1.4"
+    id("pmd")
 }
 
 group = "id.ac.ui.cs.advprog"
@@ -78,4 +79,19 @@ tasks.test {
 
 tasks.jacocoTestReport {
     dependsOn(tasks.test)
+}
+
+configure<PmdExtension> {
+    // toolVersion = "7.0.0-rc4"
+    toolVersion = "6.39.0"
+    isIgnoreFailures = false
+    sourceSets = setOf(project.sourceSets.getByName("main"), project.sourceSets.getByName("test"))
+    ruleSets = listOf("category/java/bestpractices.xml", "category/java/design.xml")
+}
+
+tasks.withType<Pmd> {
+    reports {
+        html.required.set(true)
+        xml.required.set(false)
+    }
 }
