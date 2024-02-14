@@ -1,5 +1,12 @@
 # Tutorial 1
 
+[![Coverage](.github/badges/jacoco.svg)](https://github.com/wahyuhiddayat/main/actions/workflows/jacoco.yml)
+
+## Table of Contents
+- [Tutorial 1: Coding Standards](#tutorial-1)
+- [Tutorial 2: CI/CD DevOps](#tutorial-2)
+
+
 ## Reflection 1
 
 **Meaningful Names**
