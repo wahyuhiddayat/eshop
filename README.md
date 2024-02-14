@@ -56,6 +56,8 @@ Beberapa isu yang saya perbaiki dalam kode saya di antaranya adalah:
 
     EshopApplication.java sebelumnya tidak mempunyai unit test, oleh karena itu saya membuat unit testnya yang berfokus pada verifikasi aplikasi Spring Boot menggunakan smoke test, yaitu dengan memastikan bahwa aplikasi dapat dijalankan tanpa error melalui pemanggilan method main.
 
+![code-coverage](https://drive.google.com/file/d/1XCM1Px0G2ItVBkqAi7H15_aTroJNgBMY/view?usp=sharing)
+
 **Nomor 2**
 
 Menurut saya, saya sudah menerapkan konsep Continuous Integration (CI) dan Continuous Deployment (CD) dalam proyek saya. Saya telah menambahkan sebuah workflow yang secara otomatis terpicu setiap kali saya melakukan push perubahan kode ke dalam repositori saya. Proses ini tidak hanya memastikan kode saya selalu teruji melalui unit tests, tetapi juga memungkinkan aplikasi saya untuk dideploy secara otomatis ke lingkungan produksi tanpa hambatan. Dengan demikian, integrasi dan penerapan perubahan kode menjadi lebih efisien dan berkurang risiko kesalahan, yang pada gilirannya meningkatkan kualitas dan keandalan aplikasi secara keseluruhan. 
