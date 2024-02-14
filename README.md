@@ -1,6 +1,6 @@
 # Tutorial 1
 
-[![Coverage](.github/badges/jacoco.svg)](https://github.com/wahyuhiddayat/main/actions/workflows/jacoco.yml)
+[![Coverage](.github/badges/jacoco.svg)](https://github.com/wahyuhiddayat/eshop/actions/workflows/jacoco.yml)
 
 ## Table of Contents
 - [Tutorial 1: Coding Standards](#tutorial-1)
