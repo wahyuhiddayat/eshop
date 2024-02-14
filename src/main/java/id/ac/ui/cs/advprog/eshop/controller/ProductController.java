@@ -37,7 +37,7 @@ public class ProductController {
         Product product = service.findById(id);
         if (product != null) {
             model.addAttribute("product", product);
-            return "EditProduct";
+            return "editProduct";
         } else {
             return "redirect:/product/list";
         }
