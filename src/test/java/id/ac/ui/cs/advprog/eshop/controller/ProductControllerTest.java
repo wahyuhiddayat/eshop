@@ -69,7 +69,7 @@ public class ProductControllerTest {
         mockMvc.perform(get("/product/edit/" + productId))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("product"))
-                .andExpect(view().name("EditProduct"));
+                .andExpect(view().name("editProduct"));
 
         verify(productService, times(1)).findById(productId);
     }
