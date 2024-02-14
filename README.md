@@ -56,7 +56,12 @@ Beberapa isu yang saya perbaiki dalam kode saya di antaranya adalah:
 
     EshopApplication.java sebelumnya tidak mempunyai unit test, oleh karena itu saya membuat unit testnya yang berfokus pada verifikasi aplikasi Spring Boot menggunakan smoke test, yaitu dengan memastikan bahwa aplikasi dapat dijalankan tanpa error melalui pemanggilan method main.
 
-![code-coverage](https://imgur.com/d7ZAsfr)
+```
+Code Coverage 
+- Before : 37%
+- After : 100%
+```
+
 
 **Nomor 2**
 
