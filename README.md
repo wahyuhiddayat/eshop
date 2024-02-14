@@ -14,7 +14,7 @@ Saya sudah menerapkan prinsip clean code seperti:
 4. Objects and Data Structure : Saya telah menerapkan prinsip enkapsulasi dengan baik dengan mengimplementasikan _getter_ dan _setter_ dengan baik pada objek `Product`. Struktur data yang saya gunakan untuk menyimpan produk adalah `List<Product>` dalam `ProductRepository`. Namun, cara ini bukan cara yang paling efisien jika terdapat banyak objek `Product`.
 5. Error Handling : Saya telah menerapkan strategi penanganan kesalahan dasar, seperti pengalihan pengguna ke halaman daftar ketika produk tidak ditemukan.
 
-### Reflection 1
+### Reflection 2
 
 **Nomor 1**
 
