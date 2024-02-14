@@ -26,7 +26,7 @@ class HomePageFunctionalTest {
 
     @BeforeEach
     void setupTest() {
-        baseUrl = String.format("%s:%d/product/list", testBaseUrl, serverPort);
+        baseUrl = String.format("%s:%d/", testBaseUrl, serverPort);
     }
 
     @Test
@@ -39,7 +39,14 @@ class HomePageFunctionalTest {
     @Test
     void welcomeMessage_homePage_isCorrect(ChromeDriver driver) throws Exception {
         driver.get(baseUrl);
-        String welcomeMessage = driver.findElement(By.tagName("h2")).getText();
+        String welcomeMessage = driver.findElement(By.tagName("h3")).getText();
         assertEquals("Welcome", welcomeMessage);
+    }
+
+    @Test
+    void navigateToProductListPage_isSuccessful(ChromeDriver driver) throws Exception {
+        driver.get(baseUrl);
+        driver.findElement(By.linkText("See Product List")).click();
+        assertEquals(String.format("%s:%d/product/list", testBaseUrl, serverPort), driver.getCurrentUrl());
     }
 }
