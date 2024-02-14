@@ -79,6 +79,10 @@ tasks.test {
 
 tasks.jacocoTestReport {
     dependsOn(tasks.test)
+
+    reports {
+        csv.required = true
+    }
 }
 
 configure<PmdExtension> {
@@ -93,24 +97,5 @@ tasks.withType<Pmd> {
     reports {
         html.required.set(true)
         xml.required.set(false)
-    }
-}
-
-plugins {
-    jacoco
-}
-
-tasks.jacocoTestReport {
-    reports {
-        csv.required.set(true)
-    }
-}
-
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
-    reports {
-        xml.required.set(true)
-        html.required.set(true)
-        csv.required.set(true)
     }
 }
