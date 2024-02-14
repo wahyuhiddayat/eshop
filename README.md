@@ -1,11 +1,11 @@
 # Tutorial 1
 
-[![Coverage](.github/badges/jacoco.svg)](https://github.com/wahyuhiddayat/eshop/actions/workflows/jacoco.yml)
+[![Coverage](.github/badges/jacoco.svg)](https://github.com/wahyuhiddayat/eshop/actions/workflows/ci.yml)
+[![Branches](.github/badges/branches.svg)](https://github.com/wahyuhiddayat/eshop/actions/workflows/ci.yml)
 
 ## Table of Contents
 - [Tutorial 1: Coding Standards](#tutorial-1)
 - [Tutorial 2: CI/CD DevOps](#tutorial-2)
-
 
 ## Reflection 1
 
