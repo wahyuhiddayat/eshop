@@ -1,11 +1,16 @@
 # Advanced Programming 
 
+**Nama**: Wahyu Hidayat  
+**NPM**: 2206081894  
+**Kelas**: Advanced Programming B
+
 [![Coverage](.github/badges/jacoco.svg)](https://github.com/wahyuhiddayat/eshop/actions/workflows/ci.yml)
 [![Branches](.github/badges/branches.svg)](https://github.com/wahyuhiddayat/eshop/actions/workflows/ci.yml)
 
 ## Table of Contents
 - [Tutorial 1: Coding Standards](#tutorial-1)
 - [Tutorial 2: CI/CD DevOps](#tutorial-2)
+- [Tutorial 3: Maintainability & OO Principles](#tutorial-3)
 
 
 ## Tutorial 1
@@ -70,3 +75,25 @@ Code Coverage
 **Nomor 2**
 
 Menurut saya, saya sudah menerapkan konsep Continuous Integration (CI) dan Continuous Deployment (CD) dalam proyek saya. Saya telah menambahkan sebuah workflow yang secara otomatis terpicu setiap kali saya melakukan push perubahan kode ke dalam repositori saya. Proses ini tidak hanya memastikan kode saya selalu teruji melalui unit tests, tetapi juga memungkinkan aplikasi saya untuk dideploy secara otomatis ke lingkungan produksi tanpa hambatan. Dengan demikian, integrasi dan penerapan perubahan kode menjadi lebih efisien dan berkurang risiko kesalahan, yang pada gilirannya meningkatkan kualitas dan keandalan aplikasi secara keseluruhan. 
+
+## Tutorial 3
+
+1. Explain what principles you apply to your project!
+   Prinsip-prinsip yang saya terapkan meliputi:
+   - Single Responsibility Principle (SRP), yaitu setiap kelas hanya memiliki satu tugas spesifik sehingga kode dapat lebih mudah dimengerti dan lebih terfokus pada fungsi utamanya. Cara saya menerapkan ini adalah dengan memisahkan CarController dan ProductController menjadi file yang berbeda.
+   - Open/Closed Principle, yaitu ketika sebuah fitur baru ingin ditambahkan ke dalam program, maka kode yang sudah ada tidak seharusnya diubah melainkan hanya perlu menambahkan kode baru. Cara saya menerapkan prinsip ini adalah dengan membuat interface CarService sehingga CarServiceImpl yang mengimplementasikan CarService dapat memperluas fungsionalitasnya tanpa mengubah interface.
+   - Prinsip Substitusi Liskov yaitu objek dari kelas turunan harus dapat digunakan sebagai pengganti objek dari kelas dasar tanpa mengubah properti yang diharapkan atau perilaku yang diharapkan dari program tersebut. Cara saya menerapkannya adalah dengan mengganti penggunaan CarServiceImpl dengan CarService pada CarController.
+   - Interface Segregation Principle adalah membagi antarmuka menjadi bagian-bagian yang lebih kecil dan lebih khusus, sehingga klien hanya menggunakan apa yang dibutuhkan. Cara saya menerapkan prinsip ini adalah dengan membuat method yang relevan untuk car dalam CarService.
+   - Dependency Inversion Principle yaitu kelas tingkat tinggi tidak boleh bergantung pada kelas tingkat rendah, tetapi keduanya harus bergantung pada abstraksi. Cara saya menerapkannya adalah membuat CarController tidak bergantung langsung pada implementasi CarRepository, melainkan hanya pada abstraksi CarService.
+   
+
+2. Explain the advantages of applying SOLID principles to your project with examples.
+   - Kemudahan dalam pemeliharaan (maintainability), misalnya, dengan SRP, setiap kali ada perubahan pada logika terkait car, saya hanya perlu memodifikasi CarService tanpa perlu mengubah controller atau repository, yang meminimalkan risiko bug.
+   - Kemudahan dalam penambahan fitur baru (extensibility), dengan OCP, saya dapat menambahkan jenis produk baru ke dalam sistem tanpa mengubah kode yang sudah ada.
+   - Kode lebih mudah dipahami (readability), Karena setiap kelas memiliki tanggung jawab yang jelas, kode menjadi lebih mudah untuk dipahami dan dikelola.
+   
+
+3. Explain the disadvantages of not applying SOLID principles to your project with examples.
+   - Kode menjadi rigid dan fragile, tanpa OCP, setiap penambahan fitur mungkin membutuhkan perubahan pada kode yang sudah ada, yang meningkatkan risiko memperkenalkan bug dan masalah kompatibilitas.
+   - Ketergantungan yang kaku (rigid dependencies),  Tanpa DIP, kelas-kelas di aplikasi akan sangat bergantung pada implementasi spesifik, bukan abstraksi, yang membuatnya sulit untuk diuji dan diintegrasikan dengan komponen lain atau layanan eksternal.
+   - Sulitnya pengujian (testing difficulty), Jika ISP tidak diikuti, akan sulit untuk menulis pengujian unit karena kelas-kelas cenderung memiliki tanggung jawab yang lebih banyak, yang berarti pengujian menjadi lebih kompleks dan kurang fokus.
