@@ -1,5 +1,9 @@
 # Advanced Programming 
 
+**Nama**: Wahyu Hidayat  
+**NPM**: 2206081894  
+**Kelas**: Advanced Programming B
+
 [![Coverage](.github/badges/jacoco.svg)](https://github.com/wahyuhiddayat/eshop/actions/workflows/ci.yml)
 [![Branches](.github/badges/branches.svg)](https://github.com/wahyuhiddayat/eshop/actions/workflows/ci.yml)
 
