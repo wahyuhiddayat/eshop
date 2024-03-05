@@ -48,7 +48,7 @@ class OrderServiceImplTest {
         doReturn(order).when(orderRepository).save(order);
 
         Order result = orderService.createOrder(order);
-        verify(orderRepository), times(1)).save(order);
+        verify(orderRepository, times(1)).save(order);
         assertEquals(order.getId(), result.getId());
     }
 
@@ -64,7 +64,7 @@ class OrderServiceImplTest {
     @Test
     void testUpdateStatus() {
         Order order = orders.get(1);
-        Order newOrder = new Order(order.getId, order.getProducts, order.getOrderTime(), order.getAuthor(), OrderStatus.SUCCESS.getValue());
+        Order newOrder = new Order(order.getId(), order.getProducts(), order.getOrderTime(), order.getAuthor(), OrderStatus.SUCCESS.getValue());
         doReturn(order).when(orderRepository).findById(order.getId());
         doReturn(newOrder).when(orderRepository).save(any(Order.class));
 
@@ -83,7 +83,7 @@ class OrderServiceImplTest {
         assertThrows(IllegalArgumentException.class,
                 () -> orderService.updateStatus(order.getId(), "MEOW"));
 
-        verify(orderRepository, times(0)).save(any(Order))
+        verify(orderRepository, times(0)).save(any(Order.class));
     }
 
     @Test
