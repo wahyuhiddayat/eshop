@@ -81,7 +81,6 @@ class OrderRepositoryTest {
         for (Order order : orders) {
             orderRepository.save(order);
         }
-
         Order findResult = orderRepository.findById("zczc");
         assertNull(findResult);
     }
@@ -93,9 +92,8 @@ class OrderRepositoryTest {
         }
 
         List<Order> orderList = orderRepository.findAllByAuthor(
-            orders.get(1).getAuthor());
-            assertEquals(2, orderList.size());
-        }
+                orders.get(1).getAuthor());
+        assertEquals(2, orderList.size());
     }
 
     @Test
@@ -107,3 +105,4 @@ class OrderRepositoryTest {
         assertTrue(orderList.isEmpty());
     }
 }
+
