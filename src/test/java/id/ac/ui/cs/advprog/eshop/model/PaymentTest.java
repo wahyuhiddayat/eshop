@@ -34,7 +34,7 @@ class PaymentTest {
         product2.setProductQuantity(1);
         products.add(product2);
 
-        order= new Order("a2c6328-4a37-4664-83c7-f32db8620155", products, 1708560000L, "Safira Sudrajat");
+        order = new Order("a2c6328-4a37-4664-83c7-f32db8620155", products, 1708560000L, "Safira Sudrajat");
     }
 
     void prepareBankTransferData() {
