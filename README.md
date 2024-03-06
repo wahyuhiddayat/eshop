@@ -11,6 +11,7 @@
 - [Tutorial 1: Coding Standards](#tutorial-1)
 - [Tutorial 2: CI/CD DevOps](#tutorial-2)
 - [Tutorial 3: Maintainability & OO Principles](#tutorial-3)
+- [Tutorial 4: Refactoring and TDD](#tutorial-3)
 
 
 ## Tutorial 1
@@ -97,3 +98,23 @@ Menurut saya, saya sudah menerapkan konsep Continuous Integration (CI) dan Conti
    - Kode menjadi rigid dan fragile, tanpa OCP, setiap penambahan fitur mungkin membutuhkan perubahan pada kode yang sudah ada, yang meningkatkan risiko memperkenalkan bug dan masalah kompatibilitas.
    - Ketergantungan yang kaku (rigid dependencies),  Tanpa DIP, kelas-kelas di aplikasi akan sangat bergantung pada implementasi spesifik, bukan abstraksi, yang membuatnya sulit untuk diuji dan diintegrasikan dengan komponen lain atau layanan eksternal.
    - Sulitnya pengujian (testing difficulty), Jika ISP tidak diikuti, akan sulit untuk menulis pengujian unit karena kelas-kelas cenderung memiliki tanggung jawab yang lebih banyak, yang berarti pengujian menjadi lebih kompleks dan kurang fokus.
+
+## Tutorial 4
+
+### Reflection 1
+
+1. Reflect based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing” submodule, chapter “Evaluating Your Testing Objectives”), whether this TDD flow is useful enough for you or not. If not, explain things that you need to do next time you make more tests.
+   
+   Saya merasa bahwa pendekatan TDD sangat bermanfaat. TDD membantu saya untuk lebih fokus pada kebutuhan dan tujuan dari fungsi yang saya kembangkan. Dengan menulis test terlebih dahulu, saya memikirkan tentang cara kerja fungsi sebelum benar-benar mengimplementasikannya. Ini membantu dalam mengklarifikasi tujuan dari kode yang saya tulis dan memastikan bahwa setiap baris kode yang saya tambahkan memiliki tujuan yang jelas. Saya merasa saya masih perlu lebih memperhatikan pada penulisan tes yang lebih komprehensif dan memastikan bahwa semua skenario edge case tercover. Saya juga perlu meningkatkan pemahaman saya tentang mocking dan stubbing untuk mengisolasi unit tes dari ketergantungan eksternal, sehingga dapat lebih fokus pada unit yang sedang diuji.
+
+
+2. You have created unit tests in Tutorial. Now reflect whether your tests have successfully followed F.I.R.S.T. principle or not. If not, explain things that you need to do the next time you create more tests.
+   
+   Mengenai prinsip F.I.R.S.T dalam penulisan unit tes, saya berusaha mengikuti prinsip tersebut dimana setiap tes yang saya tulis berusaha untuk:
+   - Fast (Cepat): Tes berjalan dengan cepat, memungkinkan penggunaan berulang kali tanpa menghambat proses pengembangan.
+   - Independent/Isolated (Independen/Terisolasi): Tes tidak bergantung pada tes lain atau urutan penjalanan tes.
+   - Repeatable (Dapat Diulang): Tes dapat dijalankan berulang kali dalam kondisi apa pun tanpa berubah hasilnya.
+   - Self-validating (Validasi Mandiri): Tes secara otomatis memverifikasi hasilnya tanpa perlu interpretasi manual.
+   - Timely (Tepat Waktu): Tes ditulis tepat sebelum implementasi kode yang diuji.
+     
+   Meskipun saya berusaha mengikuti prinsip-prinsip tersebut, saya menyadari bahwa beberapa tes saya mungkin belum sepenuhnya terisolasi atau secepat yang saya inginkan.
