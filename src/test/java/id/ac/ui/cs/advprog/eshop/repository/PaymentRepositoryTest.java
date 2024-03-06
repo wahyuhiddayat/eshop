@@ -43,7 +43,7 @@ class PaymentRepositoryTest {
 
         order = new Order("a2c6328-4a37-4664-83c7-f32db862015", products, 1708560000L, "Safira Sudrajat");
 
-        Payment payment1 = new Payment("a0f81308-9911-40c5-8da4-fa3194485aa1", "", order, null)
+        Payment payment1 = new Payment("a0f81308-9911-40c5-8da4-fa3194485aa1", "", order, null);
         Payment payment2 = new Payment("b0f81308-9911-40c5-8da4-fa3194485aa1", "", order, null);
         payments.add(payment1);
         payments.add(payment2);
