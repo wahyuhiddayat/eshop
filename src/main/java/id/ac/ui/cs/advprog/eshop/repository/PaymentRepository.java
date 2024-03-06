@@ -10,19 +10,12 @@ public class PaymentRepository {
     private List<Payment> payments = new ArrayList<>();
 
     public Payment save(Payment payment) {
-        int index = -1;
-        for (int i = 0; i < payments.size(); i++) {
-            if (payments.get(i).getId().equals(payment.getId())) {
-                index = i;
-                break;
+        for (Payment existingPayment : payments) {
+            if (existingPayment.getId().equals(payment.getId())) {
+                throw new IllegalArgumentException("Payment with ID " + payment.getId() + " already exists.");
             }
         }
-
-        if (index != -1) {
-            payments.set(index, payment);
-        } else {
-            payments.add(payment);
-        }
+        payments.add(payment);
         return payment;
     }
 
