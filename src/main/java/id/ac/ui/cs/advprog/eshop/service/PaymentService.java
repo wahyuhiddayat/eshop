@@ -8,6 +8,6 @@ import java.util.Map;
 public interface PaymentService {
     Payment addPayment(Order order, String method, Map<String, String> data);
     List<Payment> getAllPayments();
-    Payment getPaymentById(String id);
-    Payment setStatus(String id, String status);
+    Payment getPayment(String id);
+    Payment setStatus(Payment payment, String status);
 }
